@@ -22,11 +22,10 @@ def most_common(counts):
 
 def print_reports(counts):
     for category in counts:
-        print(category, counts[category])
+        print(f"{category}: {counts[category]}")
 
 
-
-print(count_by_category(tickets))
 counts = count_by_category(tickets)
+print(counts)
 print(most_common(counts))
 print_reports(counts)
