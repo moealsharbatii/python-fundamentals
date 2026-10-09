@@ -53,7 +53,16 @@ def total_minutes(tickets):
 
     return total_min
 
+def slowest_ticket(tickets):
+    slowest = tickets[0]
+    for ticket in tickets:
+        minutes = ticket["minutes"]
+        if slowest["minutes"] < minutes:
+            slowest = ticket
+
+    return slowest
 
 print(count_by_priority(tickets))
 print(high_priority_ids(tickets))
 print(total_minutes(tickets))
+print(slowest_ticket(tickets))
