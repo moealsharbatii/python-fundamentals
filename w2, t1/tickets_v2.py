@@ -36,5 +36,15 @@ def count_by_priority(tickets):
 
     return priority_count
 
+def high_priority_ids(tickets):
+    high_ids = []
+    for ticket in tickets:
+        priority = ticket["priority"]
+        if priority == "high":
+            high_ids.append(ticket["id"])
+
+    return high_ids
+
 
 print(count_by_priority(tickets))
+print(high_priority_ids(tickets))
