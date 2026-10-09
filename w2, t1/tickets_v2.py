@@ -45,6 +45,15 @@ def high_priority_ids(tickets):
 
     return high_ids
 
+def total_minutes(tickets):
+    total_min = 0
+    for ticket in tickets:
+        minutes = ticket["minutes"]
+        total_min += minutes
+
+    return total_min
+
 
 print(count_by_priority(tickets))
 print(high_priority_ids(tickets))
+print(total_minutes(tickets))
