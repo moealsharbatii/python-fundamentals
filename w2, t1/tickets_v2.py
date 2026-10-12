@@ -1,3 +1,9 @@
+if __name__ == "__main__":
+    print(count_by_priority(tickets))
+    print(high_priority_ids(tickets))
+    print(total_minutes(tickets))
+    print(slowest_ticket(tickets))
+
 tickets = [
     {"id": 101, "category": "network", "priority": "high", "minutes": 45},
     {"id": 102, "category": "printer", "priority": "low", "minutes": 10},
@@ -5,6 +11,10 @@ tickets = [
     {"id": 104, "category": "network", "priority": "high", "minutes": 90},
     {"id": 105, "category": "software", "priority": "medium", "minutes": 30},
     {"id": 106, "category": "network", "priority": "medium", "minutes": 25},
+]
+
+negative_tickets = [
+  {"id": 101, "category": "network", "priority": "high", "minutes": -45}  
 ]
 
 # for ticket in tickets:          # ticket is one whole dictionary
@@ -27,8 +37,14 @@ tickets = [
 
 def count_by_priority(tickets):
     priority_count = {}
-    for ticket in tickets:
+    valid_priorities = ["high", "medium", "low"]
+
+    for ticket in tickets:        
         priority = ticket["priority"]
+
+        if priority not in valid_priorities:
+            raise ValueError(f"Invalid priority: {priority}")
+
         if priority not in priority_count:
             priority_count[priority] = 1
         else:
@@ -48,19 +64,26 @@ def high_priority_ids(tickets):
 def total_minutes(tickets):
     total_min = 0
     for ticket in tickets:
+        
         minutes = ticket["minutes"]
+        if minutes < 0:
+            raise ValueError(f"Cannot have negative minutes: {minutes}")
         total_min += minutes
 
     return total_min
 
 def slowest_ticket(tickets):
-    slowest = tickets[0]
-    for ticket in tickets:
-        minutes = ticket["minutes"]
-        if slowest["minutes"] < minutes: # would be better with minutes on left-hand side for easier readability
-            slowest = ticket
+     if tickets == []:
+         return None
+    
+     slowest = tickets[0]
+     for ticket in tickets:
+         minutes = ticket["minutes"]
+         if slowest["minutes"] < minutes: # would be better with minutes on left-hand side for easier readability
+             slowest = ticket
 
-    return slowest
+     return slowest
+       
 
 print(count_by_priority(tickets))
 print(high_priority_ids(tickets))
