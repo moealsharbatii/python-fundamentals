@@ -5,7 +5,11 @@ def load_tickets(filename):
     tickets = []
     for line in lines[1:]:
         clean = line.strip()
+        if clean == '':
+            continue
         parts = clean.split(",")
+        if len(parts) != 4:
+            raise ValueError(f"Invalid fields: {parts}")
         ticket = {
                 "id": int(parts[0]),
                 "category": parts[1],
@@ -15,7 +19,6 @@ def load_tickets(filename):
         tickets.append(ticket)
 
     return tickets
-
 
 def count_by_priority(tickets):
     priority_count = {}
