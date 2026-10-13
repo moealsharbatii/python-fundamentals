@@ -71,10 +71,10 @@ def slowest_ticket(tickets):
          return None
     
      slowest = tickets[0]
-    #  for ticket in tickets:
-    #      minutes = ticket["minutes"]
-    #      if slowest["minutes"] < minutes: # would be better with minutes on left-hand side for easier readability
-    #          slowest = ticket
+     for ticket in tickets:
+        minutes = ticket["minutes"]
+        if slowest["minutes"] < minutes: # would be better with minutes on left-hand side for easier readability
+            slowest = ticket
 
      return slowest
        
