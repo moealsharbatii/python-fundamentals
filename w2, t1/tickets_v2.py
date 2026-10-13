@@ -1,9 +1,3 @@
-if __name__ == "__main__":
-    print(count_by_priority(tickets))
-    print(high_priority_ids(tickets))
-    print(total_minutes(tickets))
-    print(slowest_ticket(tickets))
-
 tickets = [
     {"id": 101, "category": "network", "priority": "high", "minutes": 45},
     {"id": 102, "category": "printer", "priority": "low", "minutes": 10},
@@ -84,8 +78,8 @@ def slowest_ticket(tickets):
 
      return slowest
        
-
-print(count_by_priority(tickets))
-print(high_priority_ids(tickets))
-print(total_minutes(tickets))
-print(slowest_ticket(tickets))
+if __name__ == "__main__":
+    print(count_by_priority(tickets))
+    print(high_priority_ids(tickets))
+    print(total_minutes(tickets))
+    print(slowest_ticket(tickets))
