@@ -13,7 +13,3 @@ def is_within_hours(hour, minute):
     
     return hour >= 9 and hour <= 16
 
-
-
-#is_within_hours(12, 16)
-
