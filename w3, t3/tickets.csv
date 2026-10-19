@@ -1,0 +1,7 @@
+id,category,priority,minutes
+101,network,high,45
+102,printer,low,10
+103,password,low,5
+104,network,high,90
+105,software,medium,30
+106,network,medium,25
