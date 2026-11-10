@@ -7,7 +7,8 @@ import pytest
     ([2, 2, 2], 3, 6),
     ([5, 1], 3, 0),
     ([1], 1, 1),
-    ([1], 0, 0)
+    ([1], 0, 0),
+    ([9, 1, 1, 1], 1, 9)
 ])
 def test_busiest_stretch(tickets, k, expected):
     assert busiest_stretch(tickets, k) == expected

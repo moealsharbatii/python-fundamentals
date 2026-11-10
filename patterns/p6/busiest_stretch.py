@@ -1,9 +1,14 @@
 def busiest_stretch(tickets , k):
-    best = 0
-    for i in range(len(tickets) - k + 1):
-        next_sum = sum(tickets[i:i + k])
 
-        if next_sum > best:
-            best = next_sum
+    if len(tickets) < k:
+        return 0
+
+    total = sum(tickets[:k])
+    best = total
+    for i in range(len(tickets) - k):
+        total = total - tickets[i] + tickets[i + k]
+
+        if total > best:
+            best = total
         
     return best
